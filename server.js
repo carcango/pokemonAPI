@@ -49,3 +49,16 @@ const pokemonSchema = new mongoose.Schema({
 const pokemonModel = mongoose.model("pokemon", pokemonSchema);
 
 //------------------------------------Request handling ------------------------------------//
+
+app.get('/:id', function (req, res) {
+  pokemonModel.find({ $or: [{name: 'id', id: 'id'}]}, function (err, poke_data) {
+      if (err) {
+          console.log("Error " + err);
+      } else {
+
+          console.log("Data " + poke_data);
+          console.log(poke_data)
+      }
+      res.send(poke_data);
+  });
+})

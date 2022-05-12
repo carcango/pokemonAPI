@@ -50,8 +50,8 @@ const pokemonModel = mongoose.model("pokemon", pokemonSchema);
 
 //------------------------------------Request handling ------------------------------------//
 
-app.get('/:id', function (req, res) {
-  pokemonModel.find({ $or: [{name: 'id', id: 'id'}]}, function (err, poke_data) {
+app.get('/', function (req, res) {
+  pokemonModel.find({ $or: [{name: req.body, id: req.body}]}, function (err, poke_data) {
       if (err) {
           console.log("Error " + err);
       } else {

@@ -1,5 +1,6 @@
 //-----------------------------------------Server Setup-------------------------------------//
 const express = require("express");
+var cors = require('cors')
 const app = express();
 app.set("view engine", "ejs");
 const https = require("https");
@@ -9,6 +10,8 @@ const bodyparser = require("body-parser");
 app.listen(process.env.PORT || 5001, function (err) {
   if (err) console.log(err);
 });
+
+app.use(cors())
 
 app.use(
   bodyparser.urlencoded({

@@ -10,7 +10,6 @@ app.listen(process.env.PORT || 5001, function (err) {
   if (err) console.log(err);
 });
 
-
 app.use(
   bodyparser.urlencoded({
     extended: true,
@@ -26,9 +25,23 @@ mongoose.connect(
 );
 
 const pokemonSchema = new mongoose.Schema({
-  text: String,
-  hits: Number,
-  time: String,
+  abilities: Array,
+  base_experience: Number,
+  forms: Array,
+  game_indices: Array,
+  height: Number,
+  held_items: Array,
+  id: Number,
+  is_default: Boolean,
+  location_area_encounters: String,
+  moves: Array,
+  name: String,
+  order: Number,
+  species: {},
+  sprites: {},
+  stats: Array,
+  types: Array,
+  weight: Number,
 });
 const pokemonModel = mongoose.model("pokemon", pokemonSchema);
 
